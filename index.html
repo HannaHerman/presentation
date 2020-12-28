@@ -75,6 +75,390 @@
             <li><strong>auto</strong> – indicates auto-placement, an automatic span, or a default span of one.</li>
           </ul>
         </section>
+        <section data-background-color="#2b524a">
+          <img src="./assets/grid-column-row-start-end.png" alt="grid-column-row-start-end image">
+          <pre>
+            <code class="grid-column-code" data-trim data-noescape><script type="text/template">
+              .item-a {
+                grid-column-start: 2;
+                grid-column-end: 5;
+                grid-row-start: 1;
+                grid-row-end: 3;
+              }
+            </script></code>
+          </pre>
+        </section>
+        <section>
+          <h5>grid-column</h5>
+          <h5>grid-row</h5>
+          <p>Shorthand for grid-column-start + grid-column-end, and grid-row-start + grid-row-end.</p>
+          <p class="paragraph-title">Values:</p>
+          <ul>
+            <li><strong>&lt;start-line&gt; / &lt;end-line&gt;</strong> – can be a number to refer to a numbered grid line, or a name to refer to a named grid line;</li>
+          </ul>
+          <pre>
+            <code class="grid-column-code" data-trim data-noescape><script type="text/template">
+              .item {
+                grid-column: <start-line> / <end-line> | <start-line> / span <value>;
+                grid-row: <start-line> / <end-line> | <start-line> / span <value>;
+              }
+            </script></code>
+          </pre>
+        </section>
+        <section data-background-color="#2b524a">
+          <img src="./assets/grid-column-row.png" alt="grid-column-row image">
+          <pre>
+            <code class="grid-column-code" data-trim data-noescape><script type="text/template">
+              .item-c {
+                grid-column: 3 / span 2;
+                grid-row: 3 / 4;
+              }
+            </script></code>
+          </pre>
+        </section>
+      </section>
+      <section>
+        <section>
+          <h3>Properties for the Parent (Grid Container) display</h3>
+        </section>
+        <section>
+          <h5>grid-template-columns</h5>
+          <h5>grid-template-rows</h5>
+          <p class="paragraph-title">Values:</p>
+          <ul>
+            <li><strong>&lt;track-size&gt;</strong> – can be a length, a percentage, or a fraction of the free space in the grid ;</li>
+            <li><strong>&lt;line-name&gt;</strong> – an arbitrary name of your choosing.</li>
+          </ul>
+          <pre>
+            <code class="grid-column-code" data-trim data-noescape><script type="text/template">
+              .container {
+                grid-template-columns:  ... |   ...;
+                grid-template-rows:  ... |   ...;
+              }
+            </script></code>
+          </pre>
+        </section>
+        <section data-background-color="#2b524a">
+          <img src="./assets/template-columns-rows.png" alt="template-columns-rows image">
+          <pre>
+            <code class="grid-column-code" data-trim data-noescape><script type="text/template">
+              .container {
+                grid-template-columns: 40px 50px auto 50px 40px;
+                grid-template-rows: 25% 100px auto;
+              }
+            </script></code>
+          </pre>
+        </section>
+        <section data-background-color="#2b524a">
+          <p class="note-paragraph">But you can choose to explicitly name the lines. Note the bracket syntax for the line names:</p>
+          <img src="./assets/template-column-rows-names.png" alt="template-column-rows-names image">
+          <pre>
+            <code class="small-size-code" data-trim data-noescape><script type="text/template">
+              .container {
+                grid-template-columns: [first] 40px [line2] 50px [line3] auto [col4-start] 50px [five] 40px [end];
+                grid-template-rows: [row1-start] 25% [row1-end] 100px [third-line] auto [last-line];
+              }
+            </script></code>
+          </pre>
+        </section>
+        <section>
+          <p class="smaller-text">Note that a line can have more than one name. For example, here the second line will have two names: row1-end and row2-start:</p>
+          <pre>
+            <code class="grid-column-code" data-trim data-noescape><script type="text/template">
+              .container {
+                grid-template-rows: [row1-start] 25% [row1-end row2-start] 25% [row2-end];
+              }
+            </script></code>
+          </pre>
+          <p class="smaller-text">If your definition contains repeating parts, you can use the repeat() notation to streamline things:</p>
+          <pre>
+            <code class="grid-column-code" data-trim data-noescape><script type="text/template">
+              .container {
+                grid-template-columns: repeat(3, 20px [col-start]);
+              }
+              .container {
+                grid-template-columns: 20px [col-start] 20px [col-start] 20px [col-start];
+              }
+            </script></code>
+          </pre>
+        </section>
+        <section>
+          <p class="smaller-text">The fr unit allows you to set the size of a track as a fraction of the free space of the grid container. For example, this will set each item to one third the width of the grid container:</p>
+          <pre>
+            <code class="grid-column-code" data-trim data-noescape><script type="text/template">
+              .container {
+                grid-template-columns: 1fr 1fr 1fr;
+              }
+            </script></code>
+          </pre>
+          <p class="smaller-text">The free space is calculated after any non-flexible items. In this example the total amount of free space available to the fr units doesn’t include the 50px:</p>
+          <pre>
+            <code class="grid-column-code" data-trim data-noescape><script type="text/template">
+              .container {
+                grid-template-columns: 1fr 50px 1fr 1fr;
+              }
+            </script></code>
+          </pre>
+        </section>
+      </section>
+      <section>
+        <section>
+          <h3>grid-template-areas</h3>
+          <p>Defines a grid template by referencing the names of the grid areas which are specified with the grid-area property. The syntax itself provides a visualization of the structure of the grid.</p>
+        </section>
+        <section>
+          <p class="paragraph-title">Values:</p>
+          <ul>
+            <li><strong>&lt;grid-area-name&gt;</strong> – the name of a grid area specified with grid-area;</li>
+            <li><strong>.</strong> – a period signifies an empty grid cell;</li>
+            <li><strong>none</strong> – no grid areas are defined.</li>
+          </ul>
+          <pre>
+            <code class="grid-column-code" data-trim data-noescape><script type="text/template">
+              .container {
+                grid-template-areas: 
+                  " | . | none | ..."
+                  "...";
+              }
+            </script></code>
+          </pre>
+        </section>
+        <section class="long-section-code">
+          <pre>
+            <code class="grid-column-code longread-code" data-trim data-noescape><script type="text/template">
+              .item-a {
+                grid-area: header;
+              }
+              .item-b {
+                grid-area: main;
+              }
+              .item-c {
+                grid-area: sidebar;
+              }
+              .item-d {
+                grid-area: footer;
+              }
+              
+              .container {
+                display: grid;
+                grid-template-columns: 50px 50px 50px 50px;
+                grid-template-rows: auto;
+                grid-template-areas: 
+                  "header header header header"
+                  "main main . sidebar"
+                  "footer footer footer footer";
+              }
+            </script></code>
+          </pre>
+        </section>
+        <section>
+          <p>That’ll create a grid that’s four columns wide by three rows tall. The entire top row will be composed of the header area. The middle row will be composed of two main areas, one empty cell, and one sidebar area. The last row is all footer.</p>
+          <img src="./assets/grid-template-areas.png" alt="grid-template-areas image">
+        </section>
+        <section>
+          <h5>grid-template</h5>
+          <p class="paragraph-title">Values:</p>
+          <ul>
+            <li><strong>none</strong> – sets all three properties to their initial values;</li>
+            <li><strong>&lt;grid-template-rows&gt; / &lt;grid-template-columns&gt;</strong>– sets grid-template-columns and grid-template-rows to the specified values, respectively, and sets grid-template-areas to none.</li>
+          </ul>
+          <pre>
+            <code class="grid-column-code" data-trim data-noescape><script type="text/template">
+              .container {
+                grid-template: none | <grid-template-rows> / <grid-template-columns>;
+              }
+            </script></code>
+          </pre>
+        </section>
+        <section>
+          <pre>
+            <code class="grid-column-code" data-trim data-noescape><script type="text/template">
+              .container {
+                grid-template:
+                  [row1-start] "header header header" 25px [row1-end]
+                  [row2-start] "footer footer footer" 25px [row2-end]
+                  / auto 50px auto;
+              }
+            </script></code>
+          </pre>
+          <p>That’s equivalent to this:</p>
+          <pre>
+            <code class="small-size-code" data-trim data-noescape><script type="text/template">
+              .container {
+                grid-template-rows: [row1-start] 25px [row1-end row2-start] 25px [row2-end];
+                grid-template-columns: auto 50px auto;
+                grid-template-areas: 
+                  "header header header" 
+                  "footer footer footer";
+              }
+            </script></code>
+          </pre>
+        </section>
+        <section data-background-color="#2b524a">
+          <h5>column-gap, row-gap</h5>
+          <p class="note-paragraph">Specifies the size of the grid lines.</p>
+          <pre class="small-height-code">
+            <code class="small-size-code" data-trim data-noescape><script type="text/template">
+              .container {
+                grid-template-columns: 100px 50px 100px;
+                grid-template-rows: 80px auto 80px; 
+                column-gap: 10px;
+                row-gap: 15px;
+              }
+            </script></code>
+          </pre>
+          <img class="gap-image" src="./assets/grid-gap.png" alt="grid-gap image">
+        </section>
+      </section>
+      <section>
+        <section>
+          <h5>justify-items</h5>
+          <pre>
+            <code data-trim data-noescape><script type="text/template">
+              .container {
+                justify-items: start | end | center | stretch;
+              }
+            </script></code>
+          </pre>
+          <img src="./assets/justify-items-center.png" alt="justify-items-center image">
+          <pre>
+            <code data-trim data-noescape><script type="text/template">
+              .container {
+                justify-items: center;
+              }
+            </script></code>
+          </pre>
+        </section>
+        <section>
+          <h5>align-items</h5>
+          <pre>
+            <code data-trim data-noescape><script type="text/template">
+              .container {
+                align-items: start | end | center | stretch;
+              }
+            </script></code>
+          </pre>
+          <img src="./assets/align-items-stretch.png" alt="align-items-stretch image">
+          <pre>
+            <code data-trim data-noescape><script type="text/template">
+              .container {
+                align-items: stretch;
+              }
+            </script></code>
+          </pre>
+        </section>
+        <section data-background-color="#2b524a">
+          <h5>justify-content</h5>
+          <pre>
+            <code class="small-size-code" data-trim data-noescape><script type="text/template">
+              .container {
+                justify-content: start | end | center | stretch | space-around | space-between | space-evenly;    
+              }
+
+              .container {
+                justify-content: end;    
+              }
+            </script></code>
+          </pre>
+          <img class="justify-content-image" src="./assets/justify-content-end.png" alt="justify-content-end image">
+        </section>
+        <section data-background-color="#2b524a">
+          <h5>align-content</h5>
+          <pre class="small-height-code">
+            <code class="small-size-code" data-trim data-noescape><script type="text/template">
+              .container {
+                align-content: start | end | center | stretch | space-around | space-between | space-evenly;    
+              }
+
+              .container {
+                align-content: space-around;    
+              }
+            </script></code>
+          </pre>
+          <img class="align-content-image" src="./assets/align-content-space-around.png" alt="align-content-space-around image">
+        </section>
+        <section>
+          <h5>place-content</h5>
+          <p class="paragraph-title">Values:</p>
+          <ul>
+            <li><strong>&lt;align-content&gt; / &lt;justify-content&gt;</strong> – the first value sets align-content, the second value justify-content. If the second value is omitted, the first value is assigned to both properties.</li>
+          </ul>
+        </section>
+        <section>
+          <h5>grid-auto-columns, grid-auto-rows</h5>
+          <p class="paragraph-title">Values:</p>
+          <ul>
+            <li><strong>&lt;track-size&gt;</strong> – can be a length, a percentage, or a fraction of the free space in the grid (using the fr unit).</li>
+          </ul>
+          <pre>
+          <code data-trim data-noescape><script type="text/template">
+            .container {
+              grid-auto-columns: <track-size> ...;
+              grid-auto-rows: <track-size> ...;
+            }
+          </script></code>
+        </pre>
+        </section>
+        <section data-background-color="#2b524a">
+          <pre>
+            <code data-trim data-noescape><script type="text/template">
+              .container {
+                grid-template-columns: 60px 60px;
+                grid-template-rows: 90px 90px;
+              }
+            </script></code>
+          </pre>
+          <img class="grid-auto-image" src="./assets/grid-auto-columns-rows-01.png" alt="grid-auto-columns-rows image">
+        </section>
+        <section data-background-color="#2b524a">
+          <pre>
+            <code data-trim data-noescape><script type="text/template">
+              .item-a {
+                grid-column: 1 / 2;
+                grid-row: 2 / 3;
+              }
+              .item-b {
+                grid-column: 5 / 6;
+                grid-row: 2 / 3;
+              }
+            </script></code>
+          </pre>
+          <img class="auto-columns-image" src="./assets/grid-auto-columns-rows-02.png" alt="grid-auto-columns-rows image">
+        </section>
+        <section data-background-color="#2b524a">
+          <pre>
+            <code data-trim data-noescape><script type="text/template">
+              .container {
+                grid-auto-columns: 60px;
+              }
+            </script></code>
+          </pre>
+          <img class="auto-columns-image" src="./assets/grid-auto-columns-rows-03.png" alt="grid-auto-columns-rows image">
+        </section>
+      </section>
+      <section>
+        <section>
+          <h5>grid-auto-flow</h5>
+          <p class="paragraph-title">Values:</p>
+          <ul class="smaller-text">
+            <li><strong>row</strong> – tells the auto-placement algorithm to fill in each row in turn, adding new rows as necessary (default);</li>
+            <li><strong>column</strong> – tells the auto-placement algorithm to fill in each column in turn, adding new columns as necessary;</li>
+            <li><strong>dense</strong> – tells the auto-placement algorithm to attempt to fill in holes earlier in the grid if smaller items come up later.</li>
+          </ul>
+          <pre>
+            <code data-trim data-noescape><script type="text/template">
+              .container {
+                grid-auto-flow: row | column | row dense | column dense;
+              }
+            </script></code>
+          </pre>
+        </section>
+        <section>
+          <p>grid-auto-flow: row</p>
+          <img src="./assets/grid-auto-flow-01.png" alt="grid-auto-flow image">
+          <p>grid-auto-flow: column</p>
+          <img src="./assets/grid-auto-flow-02.png" alt="grid-auto-flow image">
+        </section>
       </section>
     </div>
   </div>

@@ -7,3 +7,37 @@
 .paragraph-title {
   color: white;
 }
+.note-paragraph {
+  font-size: 23px;
+}
+.small-size-code {
+  font-size: 15px;
+}
+.smaller-text {
+  font-size: 32px;
+}
+.reveal pre .longread-code{
+  max-height: 590px;
+}
+.long-section-code {
+  top: 30.5px;
+}
+.reveal .small-height-code {
+  height: 160px;
+}
+.gap-image {
+  height: 360px;
+}
+.justify-content-image {
+  width: 430px;
+}
+.reveal .align-content-image {
+  height: 350px;
+  margin-top: 50px;
+}
+.grid-auto-image {
+  height: 420px;
+}
+.auto-columns-image {
+  height: 335px;
+}
