@@ -6,14 +6,76 @@
   <title>CSS Grid Layout</title>
   <link rel="stylesheet" href="dist/reset.css">
 	<link rel="stylesheet" href="dist/reveal.css">
-  <link rel="stylesheet" href="dist/theme/black.css" id="theme">
+  <link rel="stylesheet" href="dist/theme/moon.css" id="theme">
   <link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+  <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
   <div class="reveal">
     <div class="slides">
-      <section>Slide 1</section>
-      <section>Slide 2</section>
+      <section data-background-color="#2b524a">
+		    <h2>CSS Grid Layout</h2>
+      </section>
+      <section>
+        <section>
+          <p>The CSS Grid Layout Module was developed by the CSS Working Group to provide a better way to create website layouts in CSS. It became a Candidate Recommendation in February 2017, and major browsers started to support grid layout in March 2017.</p>
+        </section>
+        <section>
+          <p>CSS grid layout is a new layout model optimized for two-dimensional layouts. It's ideal for website layouts, forms, image galleries, and anything that requires precise and responsive positioning.</p>
+        </section>
+      </section>
+      <section>
+        <section>
+          <h3>Values</h3>
+          <ul>
+            <li>grid – generates a block-level grid</li>
+            <li>inline-grid – generates an inline-level grid</li>
+          </ul>
+          <pre>
+            <code data-noescape>
+            .container {
+              display: grid | inline-grid;
+            }
+            </code>
+          </pre>
+        </section>
+        <section>
+          <h3>Properties for the Children
+            (Grid Items)
+          </h3>
+          <h5>Note:</h5>
+          <p>float, display: inline-block, display: table-cell, vertical-align and column-* properties have no effect on a grid item.</p>
+        </section>
+        <section>
+          <img src="./assets/css_grid_3x3.png" alt="grid image">
+          <p>This is an example of a grid with three rows and three columns. It contains 9 grid items. </p>
+        </section>
+        <section>
+          <h5>grid-column-start</h5>
+          <h5>grid-column-end</h5>
+          <h5>grid-row-start</h5>
+          <h5>grid-row-end</h5>
+          <pre>
+            <code class="grid-column-code" data-trim data-noescape><script type="text/template">
+              .item {
+                grid-column-start: <number> | <name> | span <number> | span <name> | auto;
+                grid-column-end: <number> | <name> | span <number> | span <name> | auto;
+                grid-row-start: <number> | <name> | span <number> | span <name> | auto;
+                grid-row-end: <number> | <name> | span <number> | span <name> | auto;
+              }
+            </script></code>
+          </pre>
+        </section>
+        <section>
+          <p class="paragraph-title">Values:</p>
+          <ul>
+            <li><strong>&lt;line&gt;</strong> – can be a number to refer to a numbered grid line, or a name to refer to a named grid line;</li>
+            <li><strong>span &lt;number&gt;</strong> – the item will span across the provided number of grid tracks;</li>
+            <li><strong>span &lt;name&gt;</strong> – the item will span across until it hits the next line with the provided name;</li>
+            <li><strong>auto</strong> – indicates auto-placement, an automatic span, or a default span of one.</li>
+          </ul>
+        </section>
+      </section>
     </div>
   </div>
   <script src="dist/reveal.js"></script>
@@ -28,6 +90,7 @@
 				progress: true,
 				center: true,
 				hash: true,
+        smartypants: true,
 				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
 			});
 		</script>
