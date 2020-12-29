@@ -282,7 +282,7 @@
           <aside class="notes">
             Line can have more than one name. We also can use line-names to set properties grid-column start and end, grid row starts and end.
 
-            For example. we can set three same columns with size 20px and give them name.
+            /////    For example. we can set three same columns with size 20px and give them name.
           </aside>
         </section>
         <section>
@@ -404,6 +404,9 @@
               }
             </script></code>
           </pre>
+          <aside class="notes">
+            More over, we can unite these three properies in one propery grid template and get more smart and compact code.
+          </aside>
         </section>
         <section>
           <pre>
@@ -470,7 +473,7 @@
             </script></code>
           </pre>
           <aside class="notes">
-            Aligns grid items along the inline (row) axis (as opposed to align-items which aligns along the block (column) axis). This value applies to all grid items inside the container. It can be defined as start, end, center and stretch.
+            Aligns grid items along the inline (row) axis. This value applies to all grid items inside the container. It can be defined as start, end, center and stretch.
           </aside>
         </section>
         <section>
@@ -491,7 +494,7 @@
             </script></code>
           </pre>
           <aside class="notes">
-            Aligns grid items along the block (column) axis (as opposed to justify-items which aligns along the inline (row) axis). This value applies to all grid items inside the container.
+            Aligns grid items along the block (column) axis. This value applies to all grid items inside the container.
           </aside>
         </section>
         <section>
@@ -509,7 +512,7 @@
           </pre>
           <img class="justify-content-image" src="./assets/justify-content-end.png" alt="justify-content-end image">
           <aside class="notes">
-            Sometimes the total size of your grid might be less than the size of its grid container. This could happen if all of your grid items are sized with non-flexible units like px. In this case you can set the alignment of the grid within the grid container. This property aligns the grid along the inline (row) axis (as opposed to align-content which aligns the grid along the block (column) axis).
+            Sometimes the total size of your grid might be less than the size of its grid container. This could happen if all of your grid items are sized with non-flexible units like px. In this case you can set the alignment of the grid within the grid container. This property aligns the grid along the inline (row) axis.
           </aside>
         </section>
         <section>
@@ -528,7 +531,7 @@
           <img class="align-content-image" src="./assets/align-content-space-around.png"
             alt="align-content-space-around image">
             <aside class="notes">
-              This property aligns the grid along the block (column) axis (as opposed to justify-content which aligns the grid along the inline (row) axis).
+              This property aligns the grid container along the block (column) axis.
             </aside>
         </section>
         <section>
@@ -541,7 +544,7 @@
           </ul>
           <aside class="notes">
             Place-content sets both the align-content and justify-content properties in a single declaration.
-            omItted
+            /////  omItted
           </aside>
         </section>
         <section>
@@ -593,7 +596,7 @@
           <img class="auto-columns-image" src="./assets/grid-auto-columns-rows-02.png"
             alt="grid-auto-columns-rows image">
           <aside class="notes">
-            Then we use grid-column and grid-row to position our grid items like this. We told .item-b to start on column line 5 and end at column line 6, but we never defined a column line 5 or 6. 
+            Then we use grid-column and grid-row to place our grid items like this. We told .item-b to start on column line 5 and end on column line 6, but we never defined a column line 5 or 6. 
             Because we referenced lines that don’t exist, tracks with widths of 0 are created to fill in the gaps. 
           </aside>
         </section>
@@ -641,7 +644,7 @@
           <p>grid-auto-flow: column</p>
           <img src="./assets/grid-auto-flow-02.png" alt="grid-auto-flow image">
           <aside class="notes">
-            Grid-auto-flow is set to row so grid will look like on the first picture. Three items were not placed (item-b, item-c and item-d) and flow across the available rows.
+            Grid-auto-flow is set to row so grid will look like on the first picture. Three items were not placed (item-b, item-c and item-d) and flow across the available rows. //// grid-auto-flow: column property is shown on the secont picture. Elements without particular place flow across available columns.
           </aside>
         </section>
       </section>
