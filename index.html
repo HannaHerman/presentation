@@ -1,30 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CSS Grid Layout</title>
   <link rel="stylesheet" href="dist/reset.css">
-	<link rel="stylesheet" href="dist/reveal.css">
+  <link rel="stylesheet" href="dist/reveal.css">
   <link rel="stylesheet" href="dist/theme/moon.css" id="theme">
   <link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
   <link rel="stylesheet" href="./styles.css">
 </head>
+
 <body>
   <div class="reveal">
     <div class="slides">
-      <section data-background-color="#2b524a">
-		    <h2>CSS Grid Layout</h2>
+      <section data-background-color="#7ccec7">
+        <h2>CSS Grid Layout</h2>
       </section>
-      <section>
+      <section data-background-color="#7ccec7">
         <section>
-          <p>The CSS Grid Layout Module was developed by the CSS Working Group to provide a better way to create website layouts in CSS. It became a Candidate Recommendation in February 2017, and major browsers started to support grid layout in March 2017.</p>
+          <p>The CSS Grid Layout Module was developed by the CSS Working Group to provide a better way to create website
+            layouts in CSS. It became a Candidate Recommendation in February 2017, and major browsers started to support
+            grid layout in March 2017.</p>
         </section>
         <section>
-          <p>CSS grid layout is a new layout model optimized for two-dimensional layouts. It's ideal for website layouts, forms, image galleries, and anything that requires precise and responsive positioning.</p>
+          <p>CSS grid layout is a new layout model optimized for two-dimensional layouts. It's ideal for website
+            layouts, forms, image galleries, and anything that requires precise and responsive positioning.</p>
+          <aside class="notes">
+            A grid is a set of horizontal and vertical lines defining columns and rows. Elements can be
+            placed onto the grid within these column and row lines. Grid works in
+            two-dimensions, so it is much better suited for creating complex layouts.
+          </aside>
         </section>
       </section>
-      <section>
+      <section data-background-color="#7ccec7">
         <section>
           <h3>Values</h3>
           <ul>
@@ -38,17 +48,38 @@
             }
             </code>
           </pre>
+          <aside class="notes">
+            To create a grid, you simply set an element to display: grid or inline-grid.
+          </aside>
+        </section>
+        <section>
+          <img src="./assets/css_grid_3x3.png" alt="grid image">
+          <pre>
+            <code data-noescape>
+              .container {
+                display: grid;
+                grid-template-columns: 100px 100px 100px;
+                grid-template-rows: 40px 40px 40px;
+                column-gap: 10px;
+                row-gap: 10px;
+              }
+            </code>
+          </pre>
+          <aside class="notes">
+            This is an example of a grid with three rows and three columns. It contains 9 grid items. It's quite simple to be done.
+          </aside>
         </section>
         <section>
           <h3>Properties for the Children
             (Grid Items)
           </h3>
           <h5>Note:</h5>
-          <p>float, display: inline-block, display: table-cell, vertical-align and column-* properties have no effect on a grid item.</p>
-        </section>
-        <section>
-          <img src="./assets/css_grid_3x3.png" alt="grid image">
-          <p>This is an example of a grid with three rows and three columns. It contains 9 grid items. </p>
+          <p>float, display: inline-block, display: table-cell, vertical-align and column-* properties have no effect on
+            a grid item.</p>
+          <aside class="notes">
+           The ability to pass grid parameters down through nested elements (or how they are called subgrids) has been moved to level 2 of the CSS Grid specification. This feature is available in Firefox, which is currently the only
+            browser which implements subgrid.
+          </aside>
         </section>
         <section>
           <h5>grid-column-start</h5>
@@ -65,17 +96,28 @@
               }
             </script></code>
           </pre>
+          <aside class="notes">
+            Determines a grid item’s location within the grid by referring to specific grid lines.
+            grid-column-start/grid-row-start is the line where the item begins, and grid-column-end/grid-row-end is the
+            line where the item ends.
+          </aside>
         </section>
         <section>
           <p class="paragraph-title">Values:</p>
           <ul>
-            <li><strong>&lt;line&gt;</strong> – can be a number to refer to a numbered grid line, or a name to refer to a named grid line;</li>
-            <li><strong>span &lt;number&gt;</strong> – the item will span across the provided number of grid tracks;</li>
-            <li><strong>span &lt;name&gt;</strong> – the item will span across until it hits the next line with the provided name;</li>
+            <li><strong>&lt;line&gt;</strong> – can be a number to refer to a numbered grid line, or a name to refer to
+              a named grid line;</li>
+            <li><strong>span &lt;number&gt;</strong> – the item will span across the provided number of grid tracks;
+            </li>
+            <li><strong>span &lt;name&gt;</strong> – the item will span across until it hits the next line with the
+              provided name;</li>
             <li><strong>auto</strong> – indicates auto-placement, an automatic span, or a default span of one.</li>
           </ul>
+          <aside class="notes">
+            These properties
+          </aside>
         </section>
-        <section data-background-color="#2b524a">
+        <section>
           <img src="./assets/grid-column-row-start-end.png" alt="grid-column-row-start-end image">
           <pre>
             <code class="grid-column-code" data-trim data-noescape><script type="text/template">
@@ -87,6 +129,9 @@
               }
             </script></code>
           </pre>
+          <aside class="notes">
+            And here you could see the example. The item-a lies between the first and the fifth lines in the column and the first and the third lines in the row.
+          </aside>
         </section>
         <section>
           <h5>grid-column</h5>
@@ -94,7 +139,8 @@
           <p>Shorthand for grid-column-start + grid-column-end, and grid-row-start + grid-row-end.</p>
           <p class="paragraph-title">Values:</p>
           <ul>
-            <li><strong>&lt;start-line&gt; / &lt;end-line&gt;</strong> – can be a number to refer to a numbered grid line, or a name to refer to a named grid line;</li>
+            <li><strong>&lt;start-line&gt; / &lt;end-line&gt;</strong> – can be a number to refer to a numbered grid
+              line, or a name to refer to a named grid line.</li>
           </ul>
           <pre>
             <code class="grid-column-code" data-trim data-noescape><script type="text/template">
@@ -104,8 +150,11 @@
               }
             </script></code>
           </pre>
+          <aside class="notes">
+            You also can use shorten property grid-column and grid-row, where start line and end line a written using a slash.
+          </aside>
         </section>
-        <section data-background-color="#2b524a">
+        <section>
           <img src="./assets/grid-column-row.png" alt="grid-column-row image">
           <pre>
             <code class="grid-column-code" data-trim data-noescape><script type="text/template">
@@ -115,9 +164,48 @@
               }
             </script></code>
           </pre>
+          <aside class="notes">
+            Here's the example. The item-c starts from the third line for 2 columns and lies between the third and the fourth lines in row.
+          </aside>
+        </section>
+        <section>
+          <h4>order</h5>
+          <p class="paragraph-title">Values:</p>
+          <ul>
+            <li><strong>&lt;integer&gt; / &lt;end-line&gt;</strong> – represents the ordinal group to be used by the
+              item.</li>
+          </ul>
+          <p>Items with the lowest order value are placed first in the grid. Items with higher values are placed
+            later. Items which have the same order value will be placed in the order in which they appear in the
+            source document.</p>
+          <aside class="notes">
+            Property order could be an integer or end line, it reperesents....
+          </aside>
+        </section>
+        <section>
+          <img src="./assets/grid-order.png" alt="grid-order image">
+          <pre>
+            <code class="grid-column-code" data-trim data-noescape><script type="text/template">
+              .item-a {
+                order: 4;
+              }
+              .item-b {
+                order: 3;
+              }
+              .item-c {
+                order: 2;
+              }
+              .item-d {
+                order: 1;
+              }
+            </script></code>
+          </pre>
+          <aside class="notes">
+            This is the example which shows how elements with ascEndent order in document could be displaied in descEndent order using that property.
+          </aside>
         </section>
       </section>
-      <section>
+      <section data-background-color="#7ccec7">
         <section>
           <h3>Properties for the Parent (Grid Container) display</h3>
         </section>
@@ -126,7 +214,8 @@
           <h5>grid-template-rows</h5>
           <p class="paragraph-title">Values:</p>
           <ul>
-            <li><strong>&lt;track-size&gt;</strong> – can be a length, a percentage, or a fraction of the free space in the grid ;</li>
+            <li><strong>&lt;track-size&gt;</strong> – can be a length, a percentage, or a fraction of the free space in
+              the grid ;</li>
             <li><strong>&lt;line-name&gt;</strong> – an arbitrary name of your choosing.</li>
           </ul>
           <pre>
@@ -137,8 +226,11 @@
               }
             </script></code>
           </pre>
+          <aside class="notes">
+            Defines the columns and rows of the grid with a space-separated list of values. The values represent the track size, and the space between them represents the grid line.
+          </aside>
         </section>
-        <section data-background-color="#2b524a">
+        <section>
           <img src="./assets/template-columns-rows.png" alt="template-columns-rows image">
           <pre>
             <code class="grid-column-code" data-trim data-noescape><script type="text/template">
@@ -148,9 +240,13 @@
               }
             </script></code>
           </pre>
+          <aside class="notes">
+            For example we can create grid-container with five columns and 3 rows and to set size for them using these two properties.
+          </aside>
         </section>
-        <section data-background-color="#2b524a">
-          <p class="note-paragraph">But you can choose to explicitly name the lines. Note the bracket syntax for the line names:</p>
+        <section>
+          <p class="note-paragraph">But you can choose to explicitly name the lines. Note the bracket syntax for the
+            line names:</p>
           <img src="./assets/template-column-rows-names.png" alt="template-column-rows-names image">
           <pre>
             <code class="small-size-code" data-trim data-noescape><script type="text/template">
@@ -162,7 +258,8 @@
           </pre>
         </section>
         <section>
-          <p class="smaller-text">Note that a line can have more than one name. For example, here the second line will have two names: row1-end and row2-start:</p>
+          <p class="smaller-text">Note that a line can have more than one name. For example, here the second line will
+            have two names: row1-end and row2-start:</p>
           <pre>
             <code class="grid-column-code" data-trim data-noescape><script type="text/template">
               .container {
@@ -170,7 +267,8 @@
               }
             </script></code>
           </pre>
-          <p class="smaller-text">If your definition contains repeating parts, you can use the repeat() notation to streamline things:</p>
+          <p class="smaller-text">If your definition contains repeating parts, you can use the repeat() notation to
+            streamline things:</p>
           <pre>
             <code class="grid-column-code" data-trim data-noescape><script type="text/template">
               .container {
@@ -181,9 +279,15 @@
               }
             </script></code>
           </pre>
+          <aside class="notes">
+            Line can have more than one name. We also can use line-names to set properties grid-column start and end, grid row starts and end.
+
+            For example. we can set three same columns with size 20px and give them name.
+          </aside>
         </section>
         <section>
-          <p class="smaller-text">The fr unit allows you to set the size of a track as a fraction of the free space of the grid container. For example, this will set each item to one third the width of the grid container:</p>
+          <p class="smaller-text">The fr unit allows you to set the size of a track as a fraction of the free space of
+            the grid container. For example, this will set each item to one third the width of the grid container:</p>
           <pre>
             <code class="grid-column-code" data-trim data-noescape><script type="text/template">
               .container {
@@ -191,7 +295,8 @@
               }
             </script></code>
           </pre>
-          <p class="smaller-text">The free space is calculated after any non-flexible items. In this example the total amount of free space available to the fr units doesn’t include the 50px:</p>
+          <p class="smaller-text">The free space is calculated after any non-flexible items. In this example the total
+            amount of free space available to the fr units doesn’t include the 50px:</p>
           <pre>
             <code class="grid-column-code" data-trim data-noescape><script type="text/template">
               .container {
@@ -201,10 +306,11 @@
           </pre>
         </section>
       </section>
-      <section>
+      <section data-background-color="#7ccec7">
         <section>
           <h3>grid-template-areas</h3>
-          <p>Defines a grid template by referencing the names of the grid areas which are specified with the grid-area property. The syntax itself provides a visualization of the structure of the grid.</p>
+          <p>Defines a grid template by referencing the names of the grid areas which are specified with the grid-area
+            property. The syntax itself provides a visualization of the structure of the grid.</p>
         </section>
         <section>
           <p class="paragraph-title">Values:</p>
@@ -250,17 +356,46 @@
               }
             </script></code>
           </pre>
+          <aside class="notes">
+            As an example, we can create a container with four element and name them: header, main, sidebar and footer. Using grid-template-columns and grid-template-rows we difine columns and rows. And then using grid-template-areas to define the position of four elements in grid.
+          </aside>
         </section>
         <section>
-          <p>That’ll create a grid that’s four columns wide by three rows tall. The entire top row will be composed of the header area. The middle row will be composed of two main areas, one empty cell, and one sidebar area. The last row is all footer.</p>
-          <img src="./assets/grid-template-areas.png" alt="grid-template-areas image">
+          <p class="smaller-text">That’ll create a grid that’s four columns wide by three rows tall. The entire top row will be composed of
+            the header area. The middle row will be composed of two main areas, one empty cell, and one sidebar area.
+            The last row is all footer.</p>
+          <img src="./assets/grid-template-areas-01.png" alt="grid-template-areas image">
+          <aside class="notes">
+            As an example, we can create a container with four element and name them: header, main, sidebar and footer. Using grid-template-columns and grid-template-rows we difine columns and rows. And then using grid-template-areas to define the position of four elements in grid.
+          </aside>
+        </section>
+        <section>
+          <img class="auto-columns-image" src="./assets/grid-template-areas-02.png" alt="grid-template-areas image">
+          <pre class="zero-margin">
+            <code class="small-size-code" data-trim data-noescape><script type="text/template">
+              @media all and (max-width: 600px) {
+                .container {
+                  grid-template-columns: 100px 100px;
+                  grid-template-rows: 100px 100px 100px;
+                  grid-template-areas: 
+                  "header header"
+                  "main sidebar"
+                  "footer footer";
+                }
+              }
+            </script></code>
+          </pre>
+          <aside class="notes">
+            And when we will need to change display for mobile, for example, we can change the positions of these elements by changing three properties for them. Looks quite simple!
+          </aside>
         </section>
         <section>
           <h5>grid-template</h5>
           <p class="paragraph-title">Values:</p>
           <ul>
             <li><strong>none</strong> – sets all three properties to their initial values;</li>
-            <li><strong>&lt;grid-template-rows&gt; / &lt;grid-template-columns&gt;</strong>– sets grid-template-columns and grid-template-rows to the specified values, respectively, and sets grid-template-areas to none.</li>
+            <li><strong>&lt;grid-template-rows&gt; / &lt;grid-template-columns&gt;</strong>– sets grid-template-columns
+              and grid-template-rows to the specified values, respectively, and sets grid-template-areas to none.</li>
           </ul>
           <pre>
             <code class="grid-column-code" data-trim data-noescape><script type="text/template">
@@ -293,8 +428,11 @@
               }
             </script></code>
           </pre>
+          <aside class="notes">
+            More over, we can unite these three properies in one propery grid template and get more smart and compact code.
+          </aside>
         </section>
-        <section data-background-color="#2b524a">
+        <section data-background-color="#7ccec7">
           <h5>column-gap, row-gap</h5>
           <p class="note-paragraph">Specifies the size of the grid lines.</p>
           <pre class="small-height-code">
@@ -308,9 +446,12 @@
             </script></code>
           </pre>
           <img class="gap-image" src="./assets/grid-gap.png" alt="grid-gap image">
+          <aside class="notes">
+            Futher we can add some gaps between columns and rows using column-gap and row-gap.
+          </aside>
         </section>
       </section>
-      <section>
+      <section data-background-color="#7ccec7">
         <section>
           <h5>justify-items</h5>
           <pre>
@@ -328,6 +469,9 @@
               }
             </script></code>
           </pre>
+          <aside class="notes">
+            Aligns grid items along the inline (row) axis (as opposed to align-items which aligns along the block (column) axis). This value applies to all grid items inside the container. It can be defined as start, end, center and stretch.
+          </aside>
         </section>
         <section>
           <h5>align-items</h5>
@@ -346,8 +490,11 @@
               }
             </script></code>
           </pre>
+          <aside class="notes">
+            Aligns grid items along the block (column) axis (as opposed to justify-items which aligns along the inline (row) axis). This value applies to all grid items inside the container.
+          </aside>
         </section>
-        <section data-background-color="#2b524a">
+        <section>
           <h5>justify-content</h5>
           <pre>
             <code class="small-size-code" data-trim data-noescape><script type="text/template">
@@ -361,8 +508,11 @@
             </script></code>
           </pre>
           <img class="justify-content-image" src="./assets/justify-content-end.png" alt="justify-content-end image">
+          <aside class="notes">
+            Sometimes the total size of your grid might be less than the size of its grid container. This could happen if all of your grid items are sized with non-flexible units like px. In this case you can set the alignment of the grid within the grid container. This property aligns the grid along the inline (row) axis (as opposed to align-content which aligns the grid along the block (column) axis).
+          </aside>
         </section>
-        <section data-background-color="#2b524a">
+        <section>
           <h5>align-content</h5>
           <pre class="small-height-code">
             <code class="small-size-code" data-trim data-noescape><script type="text/template">
@@ -375,20 +525,31 @@
               }
             </script></code>
           </pre>
-          <img class="align-content-image" src="./assets/align-content-space-around.png" alt="align-content-space-around image">
+          <img class="align-content-image" src="./assets/align-content-space-around.png"
+            alt="align-content-space-around image">
+            <aside class="notes">
+              This property aligns the grid along the block (column) axis (as opposed to justify-content which aligns the grid along the inline (row) axis).
+            </aside>
         </section>
         <section>
           <h5>place-content</h5>
           <p class="paragraph-title">Values:</p>
           <ul>
-            <li><strong>&lt;align-content&gt; / &lt;justify-content&gt;</strong> – the first value sets align-content, the second value justify-content. If the second value is omitted, the first value is assigned to both properties.</li>
+            <li><strong>&lt;align-content&gt; / &lt;justify-content&gt;</strong> – the first value sets align-content,
+              the second value justify-content. If the second value is omitted, the first value is assigned to both
+              properties.</li>
           </ul>
+          <aside class="notes">
+            Place-content sets both the align-content and justify-content properties in a single declaration.
+            omItted
+          </aside>
         </section>
         <section>
           <h5>grid-auto-columns, grid-auto-rows</h5>
           <p class="paragraph-title">Values:</p>
           <ul>
-            <li><strong>&lt;track-size&gt;</strong> – can be a length, a percentage, or a fraction of the free space in the grid (using the fr unit).</li>
+            <li><strong>&lt;track-size&gt;</strong> – can be a length, a percentage, or a fraction of the free space in
+              the grid (using the fr unit).</li>
           </ul>
           <pre>
           <code data-trim data-noescape><script type="text/template">
@@ -398,8 +559,11 @@
             }
           </script></code>
         </pre>
+        <aside class="notes">
+          Specifies the size of any auto-generated grid tracks.
+        </aside>
         </section>
-        <section data-background-color="#2b524a">
+        <section>
           <pre>
             <code data-trim data-noescape><script type="text/template">
               .container {
@@ -409,8 +573,11 @@
             </script></code>
           </pre>
           <img class="grid-auto-image" src="./assets/grid-auto-columns-rows-01.png" alt="grid-auto-columns-rows image">
+          <aside class="notes">
+            Let's consider the example with the ptoperty. We create a grid with two columns and rows.
+          </aside>
         </section>
-        <section data-background-color="#2b524a">
+        <section>
           <pre>
             <code data-trim data-noescape><script type="text/template">
               .item-a {
@@ -423,9 +590,14 @@
               }
             </script></code>
           </pre>
-          <img class="auto-columns-image" src="./assets/grid-auto-columns-rows-02.png" alt="grid-auto-columns-rows image">
+          <img class="auto-columns-image" src="./assets/grid-auto-columns-rows-02.png"
+            alt="grid-auto-columns-rows image">
+          <aside class="notes">
+            Then we use grid-column and grid-row to position our grid items like this. We told .item-b to start on column line 5 and end at column line 6, but we never defined a column line 5 or 6. 
+            Because we referenced lines that don’t exist, tracks with widths of 0 are created to fill in the gaps. 
+          </aside>
         </section>
-        <section data-background-color="#2b524a">
+        <section>
           <pre>
             <code data-trim data-noescape><script type="text/template">
               .container {
@@ -433,17 +605,24 @@
               }
             </script></code>
           </pre>
-          <img class="auto-columns-image" src="./assets/grid-auto-columns-rows-03.png" alt="grid-auto-columns-rows image">
+          <img class="auto-columns-image" src="./assets/grid-auto-columns-rows-03.png"
+            alt="grid-auto-columns-rows image">
+            <aside class="notes">
+              We can use grid-auto-columns and grid-auto-rows to specify the widths of these implicit tracks.
+            </aside>
         </section>
       </section>
-      <section>
+      <section data-background-color="#7ccec7">
         <section>
           <h5>grid-auto-flow</h5>
           <p class="paragraph-title">Values:</p>
           <ul class="smaller-text">
-            <li><strong>row</strong> – tells the auto-placement algorithm to fill in each row in turn, adding new rows as necessary (default);</li>
-            <li><strong>column</strong> – tells the auto-placement algorithm to fill in each column in turn, adding new columns as necessary;</li>
-            <li><strong>dense</strong> – tells the auto-placement algorithm to attempt to fill in holes earlier in the grid if smaller items come up later.</li>
+            <li><strong>row</strong> – tells the auto-placement algorithm to fill in each row in turn, adding new rows
+              as necessary (default);</li>
+            <li><strong>column</strong> – tells the auto-placement algorithm to fill in each column in turn, adding new
+              columns as necessary;</li>
+            <li><strong>dense</strong> – tells the auto-placement algorithm to attempt to fill in holes earlier in the
+              grid if smaller items come up later.</li>
           </ul>
           <pre>
             <code data-trim data-noescape><script type="text/template">
@@ -452,30 +631,113 @@
               }
             </script></code>
           </pre>
+          <aside class="notes">
+            If you have grid items that you don’t place on the grid, the auto-placement algorithm kicks in to automatically place the items. This property controls how the auto-placement algorithm works.
+          </aside>
         </section>
         <section>
           <p>grid-auto-flow: row</p>
           <img src="./assets/grid-auto-flow-01.png" alt="grid-auto-flow image">
           <p>grid-auto-flow: column</p>
           <img src="./assets/grid-auto-flow-02.png" alt="grid-auto-flow image">
+          <aside class="notes">
+            Grid-auto-flow is set to row so grid will look like on the first picture. Three items were not placed (item-b, item-c and item-d) and flow across the available rows.
+          </aside>
         </section>
+      </section>
+      <section data-background-color="#7ccec7">
+        <section>
+          <h2>Special Functions and Keywords</h2>
+        </section>
+        <section>
+          <p>When sizing rows and columns, you can use all the lengths you are used to, like px, rem, %, etc, but you
+            also have keywords like min-content, max-content, auto, and perhaps the most useful, fractional units.</p>
+          <pre>
+            <code data-trim data-noescape><script type="text/template">
+              .container {
+                grid-template-columns: 200px 1fr 2fr min-content;
+              }
+            </script></code>
+          </pre>
+        </section>
+        <section>
+          <p>You also have access to a function which can help set boundaries for otherwise flexible units. For example
+            to set a column to be 1fr, but shrink no further than 200px. fr could be used only for max value.</p>
+          <pre>
+            <code data-trim data-noescape><script type="text/template">
+              .container {
+                grid-template-columns: 1fr minmax(200px, 1fr);
+              }
+            </script></code>
+          </pre>
+        </section>
+      </section>
+      <section data-background-color="#7ccec7">
+        <section>
+          <h3>CSS Grid vs Bootstrap</h3>
+        </section>
+        <section>
+          <table class="compare-table">
+            <tr>
+              <th>Criteria</th>
+              <th class="center-title">CSS Grid</th>
+              <th class="center-title">Bootstrap</th>
+            </tr>
+            <tr>
+              <th>Markup</th>
+              <td>Has a cleaner markup. The grid layout is not defined in the markup but done in CSS</td>
+              <td>Requires a div tag for each row and for defining the class tier for specifying the layout in each div tag. This makes code lengthier</td>
+            </tr>
+            <tr>
+              <th>Column Limitation</th>
+              <td>Offers a flexible layout with no column limitation. This makes it very easy to have any number of columns</td>
+              <td>Since the grid is split into 12 columns, any layout that doesn’t add up to 12 is difficult to materialize</td>
+            </tr>
+            <tr>
+              <th>Responsiveness</th>
+              <td>Even if HTML remains the same, just add different media queries to the CSS and define the grid layout for each HTML element</td>
+              <td>One can define content area layout individually for different device sizes using predefined class tiers. But this makes the markup more difficult, as they increase the number of div classes</td>
+            </tr>
+            <tr>
+              <th>Page Load Speed</th>
+              <td>Well supported by most browsers and versions. No downloads are required and the page load speed is faster</td>
+              <td>The stylesheet supporting files have to be downloaded which slows down the page load speed</td>
+            </tr>
+          </table>
+        </section>
+      </section>
+      <section data-background-color="#7ccec7">
+        <p>Most browsers shipped native, unprefixed support for CSS Grid: Chrome (including on Android), Firefox, Safari
+          (including on iOS) and Opera.</p>
+        <img src="./assets/support.png" alt="support image">
+        <aside class="notes">
+          According to "can i use" grid has more than 95% coverage right now.
+        </aside>
+      </section>
+      <section data-background-color="#7ccec7">
+        <p>Try it now!</p>
+        <a href="https://cssgridgarden.com/#ru">Click the link to play 'GRID GARDEN'</a>
+        <aside class="notes">
+          And with all its advantages grid worth trying. You can simply start using it from playing grid garden game which represents basic grid properties. Thank you for you attention.
+        </aside>
       </section>
     </div>
   </div>
   <script src="dist/reveal.js"></script>
-		<script src="plugin/zoom/zoom.js"></script>
-		<script src="plugin/notes/notes.js"></script>
-		<script src="plugin/search/search.js"></script>
-		<script src="plugin/markdown/markdown.js"></script>
-		<script src="plugin/highlight/highlight.js"></script>
-		<script>
-			Reveal.initialize({
-				controls: true,
-				progress: true,
-				center: true,
-				hash: true,
-        smartypants: true,
-				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
-			});
-		</script>
+  <script src="plugin/zoom/zoom.js"></script>
+  <script src="plugin/notes/notes.js"></script>
+  <script src="plugin/search/search.js"></script>
+  <script src="plugin/markdown/markdown.js"></script>
+  <script src="plugin/highlight/highlight.js"></script>
+  <script>
+    Reveal.initialize({
+      controls: true,
+      progress: true,
+      center: true,
+      hash: true,
+      smartypants: true,
+      plugins: [RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight]
+    });
+  </script>
+
 </html>

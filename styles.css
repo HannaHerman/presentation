@@ -40,4 +40,19 @@
 }
 .auto-columns-image {
   height: 335px;
+  margin-bottom: 0;
+}
+.reveal .zero-margin {
+  margin-top: 0;
+}
+.compare-table {
+  font-size: 24px;
+}
+.reveal .compare-table td {
+  text-align: center;
+}
+.reveal .center-title {
+  text-align: center;
+  color: #f17127;
+  border-bottom-color: black;
 }
